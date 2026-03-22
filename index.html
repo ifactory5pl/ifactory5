@@ -3,8 +3,45 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>iFactory5.0 — Coming 2027</title>
+
+  <!-- ─── SEO META ─── -->
+  <title>iFactory5.0 — Inżynieria · AI · Automatyka | Coming 2027</title>
+  <meta name="description" content="iFactory5.0 — firma inżynierska łącząca świat fizyczny z cyfrowym. FEA, CFD, Digital Twin, automatyka, systemy AI, szkolenia i konsulting. Start Q1 2027. Warszawa, Polska."/>
+  <meta name="keywords" content="FEA, CFD, Digital Twin, automatyka, AI, Python, inżynieria obliczeniowa, konsulting inżynierski, szkolenia AI, smart home, IoT, Warszawa"/>
+  <meta name="author" content="mgr inż. Denis Czuliński"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://ifactory5.pl/"/>
+
+  <!-- ─── OPEN GRAPH ─── -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://ifactory5.pl/"/>
+  <meta property="og:title" content="iFactory5.0 — Inżynieria · AI · Automatyka"/>
+  <meta property="og:description" content="Firma inżynierska łącząca świat fizyczny z cyfrowym. FEA, CFD, Digital Twin, systemy AI i automatyka. Start Q1 2027."/>
+  <meta property="og:locale" content="pl_PL"/>
+
+  <!-- ─── TWITTER CARD ─── -->
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="iFactory5.0 — Inżynieria · AI · Automatyka"/>
+  <meta name="twitter:description" content="Firma inżynierska łącząca świat fizyczny z cyfrowym. Start Q1 2027."/>
+
+  <!-- ─── SCHEMA.ORG ─── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "iFactory5.0",
+    "url": "https://ifactory5.pl",
+    "email": "info@ifactory5.pl",
+    "address": { "@type": "PostalAddress", "addressLocality": "Warszawa", "addressCountry": "PL" },
+    "description": "Firma inżynierska łącząca inżynierię obliczeniową, Digital Twin, AI, automatykę i konsulting.",
+    "founder": { "@type": "Person", "name": "Denis Czuliński" },
+    "foundingDate": "2027",
+    "knowsAbout": ["FEA","CFD","Digital Twin","Python","Automatyka","AI","Konsulting inżynierski"]
+  }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet"/>
+
   <style>
     :root {
       --cyan:    #00FFB2;
@@ -28,268 +65,216 @@
       overflow-x: hidden;
     }
 
-    /* ─── CANVAS SIEĆ NEURONOWA ─── */
     #neural {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      opacity: 0.55;
+      position: fixed; inset: 0; z-index: 0; opacity: 0.55;
     }
 
-    /* ─── GRAIN OVERLAY ─── */
     body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
+      content: ''; position: fixed; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.4;
+      pointer-events: none; z-index: 1; opacity: 0.4;
     }
 
-    /* ─── LAYOUT ─── */
     .page {
-      position: relative;
-      z-index: 2;
+      position: relative; z-index: 2;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
       padding: 40px 24px;
     }
 
-    /* ─── LOGO SVG INLINE ─── */
+    /* LOGO */
     .logo-wrap {
-      margin-bottom: 48px;
-      opacity: 0;
+      margin-bottom: 48px; opacity: 0;
       transform: translateY(-20px);
       animation: fadeDown 1s ease forwards 0.3s;
     }
-
     .logo-wrap svg {
-      width: 180px;
-      height: 180px;
+      width: 180px; height: 180px;
       filter: drop-shadow(0 0 24px rgba(0,255,178,0.25));
     }
 
-    /* ─── TAGLINE ─── */
+    /* TAGLINE */
     .tagline {
-      font-size: 10px;
-      letter-spacing: 6px;
-      color: var(--cyan);
-      opacity: 0;
-      animation: fadeUp 1s ease forwards 0.7s;
-      margin-bottom: 16px;
-      text-transform: uppercase;
+      font-size: 10px; letter-spacing: 6px; color: var(--cyan);
+      opacity: 0; animation: fadeUp 1s ease forwards 0.7s; margin-bottom: 16px;
     }
 
-    /* ─── HEADLINE ─── */
+    /* HEADLINE */
     h1 {
       font-family: 'Rajdhani', sans-serif;
       font-size: clamp(42px, 8vw, 92px);
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -1px;
-      text-align: center;
-      opacity: 0;
-      animation: fadeUp 1s ease forwards 0.9s;
-      margin-bottom: 8px;
+      font-weight: 700; line-height: 1; letter-spacing: -1px;
+      text-align: center; opacity: 0;
+      animation: fadeUp 1s ease forwards 0.9s; margin-bottom: 8px;
     }
-
-    h1 .i     { color: #fff; }
+    h1 .i { color: #fff; }
     h1 .factory {
       background: linear-gradient(135deg, var(--cyan), var(--cyan2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    h1 .ver   { color: var(--pyyellow); font-size: 0.6em; vertical-align: super; }
+    h1 .ver { color: var(--pyyellow); font-size: 0.45em; vertical-align: 0.65em; }
 
-    /* ─── SEPARATOR ─── */
+    /* SEPARATOR */
     .sep {
-      width: 280px;
-      height: 1px;
+      width: 280px; height: 1px;
       background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-      margin: 28px auto;
-      opacity: 0;
+      margin: 28px auto; opacity: 0;
       animation: fadeUp 1s ease forwards 1.1s;
     }
 
-    /* ─── DESCRIPTION ─── */
+    /* DESC */
     .desc {
-      font-size: 13px;
-      color: var(--muted);
-      letter-spacing: 2px;
-      text-align: center;
-      max-width: 520px;
-      line-height: 2;
-      opacity: 0;
-      animation: fadeUp 1s ease forwards 1.2s;
-      margin-bottom: 56px;
+      font-size: 13px; color: var(--muted); letter-spacing: 2px;
+      text-align: center; max-width: 520px; line-height: 2;
+      opacity: 0; animation: fadeUp 1s ease forwards 1.2s; margin-bottom: 40px;
     }
     .desc span { color: var(--text); }
 
-    /* ─── WĘZŁY USŁUG ─── */
-    .nodes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      max-width: 760px;
-      margin-bottom: 64px;
+    /* ─── PANEL OPISU — rozsuwany ─── */
+    .node-panel-wrap {
+      width: 100%; max-width: 720px;
+      max-height: 0; overflow: hidden;
       opacity: 0;
+      transition:
+        max-height 0.5s cubic-bezier(0.4,0,0.2,1),
+        opacity    0.4s ease,
+        margin     0.5s ease;
+      margin-bottom: 0;
+    }
+    .node-panel-wrap.open {
+      max-height: 360px;
+      opacity: 1;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 600px) {
+      .node-panel-wrap.open { max-height: 520px; }
+      .node-panel { padding: 18px 16px 16px; }
+      .panel-body { font-size: 11px; line-height: 1.85; }
+      .panel-close { top: 10px; right: 12px; }
+    }
+
+    .node-panel {
+      border: 1px solid var(--panel-color, var(--cyan));
+      border-radius: 8px;
+      background: rgba(6,12,24,0.88);
+      backdrop-filter: blur(10px);
+      padding: 22px 28px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .node-panel::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at top left, var(--panel-color, var(--cyan)) 0%, transparent 65%);
+      opacity: 0.06; pointer-events: none;
+    }
+    .panel-label {
+      font-size: 9px; letter-spacing: 4px;
+      color: var(--panel-color, var(--cyan));
+      margin-bottom: 10px; text-transform: uppercase;
+    }
+    .panel-body {
+      font-size: 12px; color: var(--text);
+      line-height: 1.95; letter-spacing: 0.4px;
+      max-width: 640px;
+    }
+    .panel-close {
+      position: absolute; top: 14px; right: 18px;
+      font-size: 9px; letter-spacing: 2px; color: var(--muted);
+      cursor: pointer; background: none; border: none;
+      font-family: 'Share Tech Mono', monospace;
+      transition: color 0.2s;
+    }
+    .panel-close:hover { color: var(--cyan); }
+
+    /* WĘZŁY */
+    .nodes {
+      display: flex; flex-wrap: wrap; gap: 20px;
+      justify-content: center; max-width: 760px;
+      margin-bottom: 64px; opacity: 0;
       animation: fadeUp 1s ease forwards 1.4s;
     }
 
     .node {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      cursor: default;
+      position: relative; display: flex; flex-direction: column;
+      align-items: center; gap: 8px; cursor: pointer;
     }
 
     .node-circle {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
+      width: 64px; height: 64px; border-radius: 50%;
       border: 1.5px solid var(--node-color, var(--cyan));
       background: rgba(6,12,24,0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-width 0.2s;
     }
-
     .node-circle::before {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
+      content: ''; position: absolute; inset: -4px; border-radius: 50%;
       background: radial-gradient(circle, var(--node-color, var(--cyan)) 0%, transparent 70%);
-      opacity: 0.08;
-      transition: opacity 0.3s ease;
+      opacity: 0.08; transition: opacity 0.3s ease;
     }
-
-    .node:hover .node-circle {
+    .node:hover .node-circle,
+    .node.active .node-circle {
       transform: scale(1.12);
-      box-shadow: 0 0 20px var(--node-color, var(--cyan));
+      box-shadow: 0 0 24px var(--node-color, var(--cyan));
+      border-width: 2px;
     }
-    .node:hover .node-circle::before { opacity: 0.22; }
+    .node:hover .node-circle::before,
+    .node.active .node-circle::before { opacity: 0.25; }
 
     .node-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
+      width: 10px; height: 10px; border-radius: 50%;
       background: var(--node-color, var(--cyan));
       box-shadow: 0 0 8px var(--node-color, var(--cyan));
+      transition: transform 0.3s;
     }
+    .node.active .node-dot { transform: scale(1.5); }
 
     .node-label {
-      font-size: 9px;
-      letter-spacing: 2px;
+      font-size: 9px; letter-spacing: 2px;
       color: var(--node-color, var(--cyan));
-      text-align: center;
-      text-transform: uppercase;
+      text-align: center; text-transform: uppercase;
     }
-
     .node-sub {
-      font-size: 8px;
-      letter-spacing: 1px;
-      color: var(--muted);
-      text-align: center;
+      font-size: 8px; letter-spacing: 1px;
+      color: var(--muted); text-align: center;
     }
 
-    /* ─── COUNTDOWN ─── */
+    /* COUNTDOWN */
     .countdown-wrap {
-      text-align: center;
-      margin-bottom: 56px;
-      opacity: 0;
-      animation: fadeUp 1s ease forwards 1.6s;
+      text-align: center; margin-bottom: 56px;
+      opacity: 0; animation: fadeUp 1s ease forwards 1.6s;
     }
-
-    .countdown-label {
-      font-size: 9px;
-      letter-spacing: 5px;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
-    .countdown {
-      display: flex;
-      gap: 32px;
-      justify-content: center;
-    }
-
-    .cd-unit {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-    }
-
+    .countdown-label { font-size: 9px; letter-spacing: 5px; color: var(--muted); margin-bottom: 20px; }
+    .countdown { display: flex; gap: 16px; justify-content: center; }
+    .cd-unit { display: flex; flex-direction: column; align-items: center; gap: 6px; }
     .cd-value {
       font-family: 'Rajdhani', sans-serif;
-      font-size: clamp(32px, 6vw, 52px);
-      font-weight: 700;
-      color: #fff;
-      line-height: 1;
-      min-width: 70px;
-      text-align: center;
+      font-size: clamp(22px, 5vw, 42px); font-weight: 700; line-height: 1;
+      min-width: 52px; text-align: center;
       background: linear-gradient(180deg, #fff 60%, var(--muted));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-
-    .cd-label {
-      font-size: 8px;
-      letter-spacing: 3px;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-
+    .cd-label { font-size: 8px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
     .cd-sep {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 40px;
-      color: var(--cyan);
-      opacity: 0.4;
-      align-self: flex-start;
-      margin-top: 4px;
+      font-family: 'Rajdhani', sans-serif; font-size: 40px;
+      color: var(--cyan); opacity: 0.4; align-self: flex-start; margin-top: 4px;
       animation: blink 1s step-end infinite;
     }
 
-    /* ─── FOOTER ─── */
-    footer {
-      opacity: 0;
-      animation: fadeUp 1s ease forwards 1.8s;
-      text-align: center;
-    }
-
+    /* FOOTER */
+    footer { opacity: 0; animation: fadeUp 1s ease forwards 1.8s; text-align: center; }
     .footer-line {
-      width: 280px;
-      height: 1px;
+      width: 280px; height: 1px;
       background: linear-gradient(90deg, transparent, var(--muted), transparent);
       margin: 0 auto 20px;
     }
-
-    .footer-text {
-      font-size: 9px;
-      letter-spacing: 4px;
-      color: var(--muted);
-    }
-
-    .footer-text a {
-      color: var(--cyan);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .footer-text { font-size: 9px; letter-spacing: 4px; color: var(--muted); }
+    .footer-text a { color: var(--cyan); text-decoration: none; transition: color 0.2s; }
     .footer-text a:hover { color: #fff; }
 
-    /* ─── ANIMATIONS ─── */
+    /* ANIMACJE */
     @keyframes fadeDown {
       to { opacity: 1; transform: translateY(0); }
     }
@@ -298,18 +283,12 @@
       to   { opacity: 1; transform: translateY(0); }
     }
     @keyframes blink {
-      0%, 100% { opacity: 0.4; }
-      50%       { opacity: 0; }
-    }
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
+      0%,100% { opacity: 0.4; } 50% { opacity: 0; }
     }
   </style>
 </head>
 <body>
 
-<!-- Sieć neuronowa w tle -->
 <canvas id="neural"></canvas>
 
 <main class="page">
@@ -319,12 +298,10 @@
     <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="ag" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#00FFB2"/>
-          <stop offset="100%" stop-color="#00C9FF"/>
+          <stop offset="0%" stop-color="#00FFB2"/><stop offset="100%" stop-color="#00C9FF"/>
         </linearGradient>
         <linearGradient id="pygrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#3776AB"/>
-          <stop offset="100%" stop-color="#FFD43B"/>
+          <stop offset="0%" stop-color="#3776AB"/><stop offset="100%" stop-color="#FFD43B"/>
         </linearGradient>
         <filter id="glow">
           <feGaussianBlur stdDeviation="3" result="cb"/>
@@ -340,107 +317,119 @@
         <line x1="0" y1="300" x2="400" y2="300"/><line x1="100" y1="0" x2="100" y2="400"/>
         <line x1="200" y1="0" x2="200" y2="400"/><line x1="300" y1="0" x2="300" y2="400"/>
       </g>
-      <polygon points="200,38 310,98 310,218 200,278 90,218 90,98"
-               fill="none" stroke="url(#pygrad)" stroke-width="6" opacity="0.18" filter="url(#glowpy)"/>
-      <polygon points="200,38 310,98 310,218 200,278 90,218 90,98"
-               fill="none" stroke="url(#ag)" stroke-width="2.5" opacity="0.75"/>
-      <polygon points="200,72 272,113 272,195 200,236 128,195 128,113"
-               fill="none" stroke="url(#ag)" stroke-width="1.2" opacity="0.3"/>
+      <polygon points="200,38 310,98 310,218 200,278 90,218 90,98" fill="none" stroke="url(#pygrad)" stroke-width="6" opacity="0.18" filter="url(#glowpy)"/>
+      <polygon points="200,38 310,98 310,218 200,278 90,218 90,98" fill="none" stroke="url(#ag)" stroke-width="2.5" opacity="0.75"/>
+      <polygon points="200,72 272,113 272,195 200,236 128,195 128,113" fill="none" stroke="url(#ag)" stroke-width="1.2" opacity="0.3"/>
       <line x1="200" y1="120" x2="200" y2="192" stroke="url(#ag)" stroke-width="10" stroke-linecap="round" filter="url(#glow)"/>
       <circle cx="200" cy="97" r="10" fill="#3776AB" filter="url(#glow)"/>
-      <circle cx="200" cy="97" r="6"  fill="#FFFFFF" opacity="0.9"/>
-      <circle cx="200" cy="38"  r="5" fill="#3776AB" filter="url(#glow)"/>
-      <circle cx="310" cy="98"  r="5" fill="#FFD43B" filter="url(#glow)"/>
-      <circle cx="310" cy="218" r="5" fill="#3776AB" filter="url(#glow)"/>
-      <circle cx="200" cy="278" r="5" fill="#FFD43B" filter="url(#glow)"/>
-      <circle cx="90"  cy="218" r="5" fill="#3776AB" filter="url(#glow)"/>
-      <circle cx="90"  cy="98"  r="5" fill="#FFD43B" filter="url(#glow)"/>
+      <circle cx="200" cy="97" r="6" fill="#FFFFFF" opacity="0.9"/>
+      <circle cx="200" cy="38"  r="6" fill="#3776AB" filter="url(#glow)"/>
+      <circle cx="310" cy="98"  r="6" fill="#00FFB2" filter="url(#glow)"/>
+      <circle cx="310" cy="218" r="6" fill="#FFD43B" filter="url(#glow)"/>
+      <circle cx="200" cy="278" r="6" fill="#3776AB" filter="url(#glow)"/>
+      <circle cx="90"  cy="218" r="6" fill="#00FFB2" filter="url(#glow)"/>
+      <circle cx="90"  cy="98"  r="6" fill="#FFD43B" filter="url(#glow)"/>
       <line x1="200" y1="192" x2="200" y2="278" stroke="#00FFB2" stroke-width="1" opacity="0.2"/>
       <line x1="200" y1="97"  x2="200" y2="38"  stroke="#00FFB2" stroke-width="1" opacity="0.2"/>
-      <text x="200" y="325" text-anchor="middle" font-family="'Courier New', monospace"
-            font-size="38" font-weight="bold" fill="white" letter-spacing="-1">
-        i<tspan fill="url(#ag)" filter="url(#glow)">Factory</tspan><tspan fill="#FFD43B" font-size="26">5.0</tspan>
+      <text x="200" y="325" text-anchor="middle" font-family="'Courier New', monospace" font-size="38" font-weight="bold" fill="white" letter-spacing="-1">
+        i<tspan fill="url(#ag)" filter="url(#glow)">Factory</tspan><tspan fill="#FFD43B" font-size="22" dy="-13">5.0</tspan>
       </text>
       <line x1="60" y1="342" x2="340" y2="342" stroke="url(#ag)" stroke-width="0.7" opacity="0.4"/>
-      <text x="200" y="362" text-anchor="middle" font-family="'Courier New', monospace"
-            font-size="11" fill="#00FFB2" letter-spacing="4" opacity="0.55">ENGINEERING · AUTOMATION · AI</text>
+      <text x="200" y="362" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#00FFB2" letter-spacing="4" opacity="0.55">ENGINEERING · AUTOMATION · AI</text>
     </svg>
   </div>
 
-  <!-- TAGLINE -->
   <p class="tagline">// inicjalizacja systemu</p>
 
-  <!-- HEADLINE -->
-  <h1>
-    <span class="i">i</span><span class="factory">Factory</span><span class="ver">5.0</span>
-  </h1>
+  <h1><span class="i">i</span><span class="factory">Factory</span><span class="ver">5.0</span></h1>
 
   <div class="sep"></div>
 
-  <!-- OPIS -->
   <p class="desc">
     Inżynieria obliczeniowa · Digital Twin · AI<br/>
     Automatyka · Konsulting · Szkolenia<br/><br/>
     <span>Start przewidywany:</span> Q1 2027
   </p>
 
-  <!-- WĘZŁY USŁUG -->
+  <!-- PANEL ROZSUWANY -->
+  <div class="node-panel-wrap" id="nodePanel">
+    <div class="node-panel" id="nodePanelInner">
+      <button class="panel-close" id="panelClose">[ zamknij ]</button>
+      <div class="panel-label" id="panelTitle"></div>
+      <div class="panel-body"  id="panelText"></div>
+    </div>
+  </div>
+
+  <!-- WĘZŁY -->
   <div class="nodes">
-    <div class="node" style="--node-color:#3776AB">
+
+    <div class="node" style="--node-color:#3776AB"
+         data-title="INŻYNIERIA"
+         data-color="#3776AB"
+         data-text="Weryfikacja i recenzja modeli numerycznych MES/FEA oraz CFD — ocena poprawności siatek, warunków brzegowych, założeń materiałowych i interpreatcji wyników. Niezależny przegląd symulacji wymiany ciepła i analiz wytrzymałościowych zanim trafią do decyzji projektowej lub regulatora.">
       <div class="node-circle"><div class="node-dot"></div></div>
       <div class="node-label">Inżynieria</div>
       <div class="node-sub">FEA · CFD · Termika</div>
     </div>
-    <div class="node" style="--node-color:#00FFB2">
+
+    <div class="node" style="--node-color:#00FFB2"
+         data-title="KONSULTING"
+         data-color="#00FFB2"
+         data-text="Zewnętrzne spojrzenie inżyniera niezwiązanego wewnętrznymi przyzwyczajeniami firmy. Audyt procesów produkcyjnych, analiza cyklu życia produktu na bazie metodologii automotive — przełożona na realia małych i średnich przedsiębiorstw.">
       <div class="node-circle"><div class="node-dot"></div></div>
       <div class="node-label">Konsulting</div>
       <div class="node-sub">Procesy · Audyt</div>
     </div>
-    <div class="node" style="--node-color:#FFD43B">
+
+    <div class="node" style="--node-color:#FFD43B"
+         data-title="DIGITAL TWIN"
+         data-color="#FFD43B"
+         data-text="Ocena architektury i wiarygodności cyfrowych bliźniaków — weryfikacja czy model odzwierciedla rzeczywiste zachowanie maszyny lub procesu, analiza źródeł danych i punktów pomiarowych. Doradztwo przy wyborze strategii budowy Digital Twin dopasowanej do skali i budżetu organizacji.">
       <div class="node-circle"><div class="node-dot"></div></div>
       <div class="node-label">Digital Twin</div>
       <div class="node-sub">Fizyczne · Wirtualne</div>
     </div>
-    <div class="node" style="--node-color:#FFD43B">
+
+    <div class="node" style="--node-color:#FFD43B"
+         data-title="AI & KOD"
+         data-color="#FFD43B"
+         data-text="Budowa narzędzi i systemów opartych na sztucznej inteligencji — od automatyzacji powtarzalnych zadań przez Python i Excel VBA, po kompletne aplikacje z wbudowanym modelem językowym. Technologia dobrana do skali i potrzeb, nie odwrotnie.">
       <div class="node-circle"><div class="node-dot"></div></div>
       <div class="node-label">AI &amp; Kod</div>
       <div class="node-sub">Python · Systemy</div>
     </div>
-    <div class="node" style="--node-color:#00FFB2">
+
+    <div class="node" style="--node-color:#00FFB2"
+         data-title="SZKOLENIA"
+         data-color="#00FFB2"
+         data-text="Praktyczne warsztaty z obsługi narzędzi AI dla zespołów, które chcą realnie zwiększyć efektywność — bez marketingowego szumu. Szkolenia z Product Lifetime Management oparte na standardach automotive, przełożone na język małych firm produkcyjnych.">
       <div class="node-circle"><div class="node-dot"></div></div>
       <div class="node-label">Szkolenia</div>
       <div class="node-sub">AI · Product Lifetime</div>
     </div>
-    <div class="node" style="--node-color:#3776AB">
+
+    <div class="node" style="--node-color:#3776AB"
+         data-title="AUTOMATYKA"
+         data-color="#3776AB"
+         data-text="Inteligentne instalacje elektryczne w domach i obiektach — od projektu przez montaż po uruchomienie. Odbiory techniczne, pomiary i dozór sieci elektrycznych w maszynach i budynkach. Uprawnienia SEP w zakresie eksploatacji i dozoru.">
       <div class="node-circle"><div class="node-dot"></div></div>
       <div class="node-label">Automatyka</div>
       <div class="node-sub">Smart Home · IoT</div>
     </div>
+
   </div>
 
   <!-- COUNTDOWN -->
   <div class="countdown-wrap">
     <p class="countdown-label">// czas do startu</p>
     <div class="countdown">
-      <div class="cd-unit">
-        <div class="cd-value" id="cd-d">000</div>
-        <div class="cd-label">dni</div>
-      </div>
+      <div class="cd-unit"><div class="cd-value" id="cd-d">000</div><div class="cd-label">dni</div></div>
       <div class="cd-sep">:</div>
-      <div class="cd-unit">
-        <div class="cd-value" id="cd-h">00</div>
-        <div class="cd-label">godz</div>
-      </div>
+      <div class="cd-unit"><div class="cd-value" id="cd-h">00</div><div class="cd-label">godz</div></div>
       <div class="cd-sep">:</div>
-      <div class="cd-unit">
-        <div class="cd-value" id="cd-m">00</div>
-        <div class="cd-label">min</div>
-      </div>
+      <div class="cd-unit"><div class="cd-value" id="cd-m">00</div><div class="cd-label">min</div></div>
       <div class="cd-sep">:</div>
-      <div class="cd-unit">
-        <div class="cd-value" id="cd-s">00</div>
-        <div class="cd-label">sek</div>
-      </div>
+      <div class="cd-unit"><div class="cd-value" id="cd-s">00</div><div class="cd-label">sek</div></div>
     </div>
   </div>
 
@@ -448,120 +437,120 @@
   <footer>
     <div class="footer-line"></div>
     <p class="footer-text">
-      <a href="mailto:kontakt@ifactory5.pl">ifactory5.pl@gmail.com</a>
-      &nbsp;·&nbsp; PL
+      <a href="/cdn-cgi/l/email-protection#91f8fff7fed1f8f7f0f2e5fee3e8a4bfe1fd"><span class="__cf_email__" data-cfemail="5f363139301f36393e3c2b302d266a712f33">[email&#160;protected]</span></a>
+      &nbsp;·&nbsp; Polska
     </p>
   </footer>
 
 </main>
 
-<script>
-/* ─── NEURAL NETWORK CANVAS ─── */
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ─── NEURAL CANVAS ─── */
 const canvas = document.getElementById('neural');
-const ctx    = canvas.getContext('2d');
-
-let W, H, nodes = [], edges = [];
-
+const ctx = canvas.getContext('2d');
+let W, H, nodes = [];
 const COLORS = ['#00FFB2','#00C9FF','#3776AB','#FFD43B'];
 
 function resize() {
-  W = canvas.width  = window.innerWidth;
+  W = canvas.width = window.innerWidth;
   H = canvas.height = window.innerHeight;
-  init();
-}
-
-function init() {
   nodes = [];
-  edges = [];
   const count = Math.floor((W * H) / 22000);
   for (let i = 0; i < count; i++) {
     nodes.push({
-      x:  Math.random() * W,
-      y:  Math.random() * H,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      r:  Math.random() * 2 + 1,
-      color: COLORS[Math.floor(Math.random() * COLORS.length)],
-      opacity: Math.random() * 0.5 + 0.2,
+      x: Math.random()*W, y: Math.random()*H,
+      vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3,
+      r: Math.random()*2+1,
+      color: COLORS[Math.floor(Math.random()*COLORS.length)],
+      opacity: Math.random()*0.5+0.2
     });
   }
 }
 
 function draw() {
-  ctx.clearRect(0, 0, W, H);
-
-  // Update positions
+  ctx.clearRect(0,0,W,H);
   for (const n of nodes) {
-    n.x += n.vx;
-    n.y += n.vy;
-    if (n.x < 0 || n.x > W) n.vx *= -1;
-    if (n.y < 0 || n.y > H) n.vy *= -1;
+    n.x += n.vx; n.y += n.vy;
+    if (n.x<0||n.x>W) n.vx*=-1;
+    if (n.y<0||n.y>H) n.vy*=-1;
   }
-
-  // Draw edges
-  for (let i = 0; i < nodes.length; i++) {
-    for (let j = i + 1; j < nodes.length; j++) {
-      const dx   = nodes[i].x - nodes[j].x;
-      const dy   = nodes[i].y - nodes[j].y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      const maxD = 160;
-      if (dist < maxD) {
-        const alpha = (1 - dist / maxD) * 0.18;
+  for (let i=0; i<nodes.length; i++) {
+    for (let j=i+1; j<nodes.length; j++) {
+      const dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      if (dist<160) {
         ctx.beginPath();
-        ctx.moveTo(nodes[i].x, nodes[i].y);
-        ctx.lineTo(nodes[j].x, nodes[j].y);
-        ctx.strokeStyle = `rgba(0,201,255,${alpha})`;
-        ctx.lineWidth   = 0.6;
-        ctx.stroke();
+        ctx.moveTo(nodes[i].x,nodes[i].y);
+        ctx.lineTo(nodes[j].x,nodes[j].y);
+        ctx.strokeStyle=`rgba(0,201,255,${(1-dist/160)*0.18})`;
+        ctx.lineWidth=0.6; ctx.stroke();
       }
     }
   }
-
-  // Draw nodes
   for (const n of nodes) {
     ctx.beginPath();
-    ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-    ctx.fillStyle = n.color + Math.floor(n.opacity * 255).toString(16).padStart(2,'0');
+    ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+    ctx.fillStyle=n.color+Math.floor(n.opacity*255).toString(16).padStart(2,'0');
     ctx.fill();
   }
-
   requestAnimationFrame(draw);
 }
-
 window.addEventListener('resize', resize);
-resize();
-draw();
+resize(); draw();
 
-/* ─── COUNTDOWN DO 1 STYCZNIA 2027 ─── */
+/* ─── COUNTDOWN ─── */
 const target = new Date('2027-01-01T00:00:00');
-
-function updateCountdown() {
-  const now  = new Date();
-  const diff = target - now;
-  if (diff <= 0) {
-    document.getElementById('cd-d').textContent = '000';
-    return;
-  }
-  const d = Math.floor(diff / 86400000);
-  const h = Math.floor((diff % 86400000) / 3600000);
-  const m = Math.floor((diff % 3600000)  / 60000);
-  const s = Math.floor((diff % 60000)    / 1000);
-
-  document.getElementById('cd-d').textContent = String(d).padStart(3,'0');
-  document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
-  document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
-  document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+function tick() {
+  const diff = target - new Date();
+  if (diff <= 0) return;
+  document.getElementById('cd-d').textContent = String(Math.floor(diff/86400000)).padStart(3,'0');
+  document.getElementById('cd-h').textContent = String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
+  document.getElementById('cd-m').textContent = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+  document.getElementById('cd-s').textContent = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
 }
+tick(); setInterval(tick, 1000);
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
-/* ─── MOUSE PARALLAX NA LOGO ─── */
+/* ─── PARALLAX ─── */
 document.addEventListener('mousemove', e => {
-  const mx = (e.clientX / window.innerWidth  - 0.5) * 12;
-  const my = (e.clientY / window.innerHeight - 0.5) * 12;
-  document.querySelector('.logo-wrap').style.transform =
-    `translate(${mx}px, ${my}px)`;
+  const mx = (e.clientX/window.innerWidth -0.5)*12;
+  const my = (e.clientY/window.innerHeight-0.5)*12;
+  document.querySelector('.logo-wrap').style.transform = `translate(${mx}px,${my}px)`;
+});
+
+/* ─── PANEL WĘZŁÓW ─── */
+const panel      = document.getElementById('nodePanel');
+const panelInner = document.getElementById('nodePanelInner');
+const panelTitle = document.getElementById('panelTitle');
+const panelText  = document.getElementById('panelText');
+let active = null;
+
+document.querySelectorAll('.node').forEach(node => {
+  node.addEventListener('click', () => {
+    const same = active === node;
+    document.querySelectorAll('.node').forEach(n => n.classList.remove('active'));
+
+    if (same) {
+      panel.classList.remove('open');
+      active = null;
+      return;
+    }
+
+    const color = node.dataset.color;
+    panelTitle.textContent = node.dataset.title;
+    panelTitle.style.color = color;
+    panelText.textContent  = node.dataset.text;
+    panelInner.style.setProperty('--panel-color', color);
+
+    node.classList.add('active');
+    active = node;
+    panel.classList.add('open');
+  });
+});
+
+document.getElementById('panelClose').addEventListener('click', () => {
+  panel.classList.remove('open');
+  document.querySelectorAll('.node').forEach(n => n.classList.remove('active'));
+  active = null;
 });
 </script>
 </body>
